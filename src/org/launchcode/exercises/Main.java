@@ -29,8 +29,9 @@ public class Main {
             for (String key: studentFiles.keySet()){
                 try {
                     int score = CheckFileExtension(studentFiles.get(key));
-                    System.out.println("" + score);
+                    System.out.println("Score for " + key + " is: " + score);
                 } catch (FileExtensionMismatchException e){
+                    System.out.println("Score for " + key + " is: -1");
                     e.printStackTrace();
                 }
             }
@@ -56,7 +57,7 @@ public class Main {
         }
 
         if (extension.equals("")|| extension.equals(null)){
-            points += -1;
+            //points += -1;
             throw new FileExtensionMismatchException("File extension not found");
         } else if (extension.equals("java")) {
             points += 1;
